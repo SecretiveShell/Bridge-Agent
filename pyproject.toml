@@ -7,7 +7,12 @@ authors = [
     { name = "TerminalMan", email = "84923604+SecretiveShell@users.noreply.github.com" }
 ]
 requires-python = ">=3.10"
-dependencies = []
+dependencies = [
+    "fastapi>=0.115.6",
+    "openai>=1.59.7",
+    "pydantic>=2.10.5",
+    "uvicorn>=0.34.0",
+]
 
 [project.scripts]
 bridge-agent = "bridge_agent:main"
@@ -15,3 +20,11 @@ bridge-agent = "bridge_agent:main"
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"
+
+[dependency-groups]
+dev = [
+    "bridge-agent",
+]
+
+[tool.uv.sources]
+bridge-agent = { workspace = true }
